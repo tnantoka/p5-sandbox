@@ -5,12 +5,12 @@ import './style.css';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sketches: { [key: string]: any } = {};
-['ball', 'bounce'].forEach((name) => {
+['ball', 'bounce', 'stairs line'].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  sketches[name] = require(`./sketches/${name}`).default;
+  sketches[name] = require(`./sketches/${name.replace(/\s/, '_')}`).default;
 });
 
-let currentSketchName = location.hash ? location.hash.slice(1) : Object.keys(sketches)[0];
+let currentSketchName = location.hash ? decodeURIComponent(location.hash.slice(1)) : Object.keys(sketches)[0];
 let p5instance = new p5(sketches[currentSketchName]);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   select.addEventListener('change', (e) => {
     const value = (e.target as HTMLSelectElement).value;
 
-    location.hash = value;
+    location.hash = encodeURIComponent(value);
     currentSketchName = value;
     p5instance.remove();
     p5instance = new p5(sketches[value]);
