@@ -5,7 +5,16 @@ import './style.css';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sketches: { [key: string]: any } = {};
-['ball', 'bounce', 'stairs line', 'puzzle pattern'].forEach((name) => {
+[
+  'ball',
+  'bounce',
+  'stairs line',
+  'puzzle pattern',
+  'glow1',
+  'glow2',
+  'glow3',
+  'glow4',
+].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   sketches[name] = require(`./sketches/${name.replace(/\s/, '_')}`).default;
 });
