@@ -14,9 +14,11 @@ const sketches: { [key: string]: any } = {};
   'glow2',
   'glow3',
   'glow4',
+  'glow line',
+  'glow puzzle pattern',
 ].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  sketches[name] = require(`./sketches/${name.replace(/\s/, '_')}`).default;
+  sketches[name] = require(`./sketches/${name.replace(/\s/g, '_')}`).default;
 });
 
 let currentSketchName = location.hash ? decodeURIComponent(location.hash.slice(1)) : Object.keys(sketches)[0];

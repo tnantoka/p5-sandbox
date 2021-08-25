@@ -7,6 +7,7 @@ export class StairsLine {
   steps: number;
   direction: 'x' | 'y';
   noise: number;
+  drawLine: (p: p5, x1: number, y1: number, x2: number, y2: number) => void;
 
   radius: number;
 
@@ -23,6 +24,9 @@ export class StairsLine {
     this.steps = steps;
     this.direction = direction;
     this.noise = 2;
+    this.drawLine = (p: p5, x1: number, y1: number, x2: number, y2: number) => {
+      p.line(x1, y1, x2, y2);
+    };
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -48,7 +52,7 @@ export class StairsLine {
 
       if (i < 2) {
         const y = 0;
-        p.line(prevX, prevY, x, y);
+        this.drawLine(p, prevX, prevY, x, y);
         prevX = x;
         prevY = y;
         continue;
@@ -58,8 +62,8 @@ export class StairsLine {
         i > this.steps - 2
           ? 0
           : (Math.floor(Math.random() * this.noise * 2) - this.noise) * length;
-      p.line(prevX, prevY, prevX, y);
-      p.line(prevX, y, x, y);
+      this.drawLine(p, prevX, prevY, prevX, y);
+      this.drawLine(p, prevX, y, x, y);
       prevX = x;
       prevY = y;
     }
