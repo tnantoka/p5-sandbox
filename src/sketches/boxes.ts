@@ -11,8 +11,8 @@ export default (p: p5): void => {
     p.background(255);
     p.noStroke();
 
-    const baseH = 225;
-    const range = 50;
+    const baseH = p.random(360);
+    const range = p.random(40, 60);
     const num = 1000;
 
     for (let i = 0; i < num; i++) {
