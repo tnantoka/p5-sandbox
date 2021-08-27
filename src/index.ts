@@ -17,6 +17,8 @@ const sketches: { [key: string]: any } = {};
   'glow line',
   'glow puzzle pattern',
   'hsb',
+  'twitter1',
+  'boxes',
 ].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   sketches[name] = require(`./sketches/${name.replace(/\s/g, '_')}`).default;
