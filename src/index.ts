@@ -20,6 +20,9 @@ const sketches: { [key: string]: any } = {};
   'twitter1',
   'boxes',
   'fill_area',
+  'piece_of_cake',
+  'piece_of_cake_bug',
+  'piece_of_cake_pattern',
 ].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   sketches[name] = require(`./sketches/${name.replace(/\s/g, '_')}`).default;
