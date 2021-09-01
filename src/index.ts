@@ -23,6 +23,7 @@ const sketches: { [key: string]: any } = {};
   'piece_of_cake',
   'piece_of_cake_bug',
   'piece_of_cake_pattern',
+  'piece_of_cake_pattern2',
   'dot_camouflage',
   'dot_camouflage2',
   'string_art',
