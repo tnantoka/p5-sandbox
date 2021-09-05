@@ -27,6 +27,7 @@ const sketches: { [key: string]: any } = {};
   'dot_camouflage',
   'dot_camouflage2',
   'string_art',
+  'clip',
 ].forEach((name) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   sketches[name] = require(`./sketches/${name.replace(/\s/g, '_')}`).default;
